@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeopardy Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="jeopardy-board">
+        <div class="category" id="category1">
+            <div class="category-header">Harry Potter</div>
+            <button class="question" data-points="100">100</button>
+            <button class="question" data-points="200">200</button>
+            <button class="question" data-points="300">300</button>
+            <button class="question" data-points="400">400</button>
+            <button class="question" data-points="500">500</button>
+        </div>
+        <!-- Repeat for other categories -->
+    </div>
+
+    <div id="question-modal" class="modal">
+        <div id="question-content">
+            <p id="question-text"></p>
+            <button id="correct-btn">Correct</button>
+            <button id="incorrect-btn">Incorrect</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
