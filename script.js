@@ -36,36 +36,75 @@ const questions = {
     }
 };
 
-const modal = document.getElementById("question-modal");
-const questionText = document.getElementById("question-text");
-const correctBtn = document.getElementById("correct-btn");
-const incorrectBtn = document.getElementById("incorrect-btn");
+// Game variables
+const categories = Object.keys(questions);
+let teamScores = {};
 
-document.querySelectorAll(".question").forEach(button => {
-    button.addEventListener("click", function () {
-        const category = this.dataset.category;
-        const points = this.dataset.points;
-        const questionData = questions[category][points];
-        
-        // Display the question
-        questionText.textContent = questionData[0];
-        modal.style.display = "flex";
+// Generate the game board
+function generateBoard() {
+    const boardContainer = document.getElementById("board-container");
+    
+    categories.forEach(category => {
+        const categoryDiv = document.createElement("div");
+        categoryDiv.classList.add("category");
+        categoryDiv.innerText = category;
+        boardContainer.appendChild(categoryDiv);
 
-        // Handle correct/incorrect answer selection
-        correctBtn.onclick = () => {
-            alert("Correct!");
-            modal.style.display = "none";
-        };
-        incorrectBtn.onclick = () => {
-            alert(`Incorrect! The correct answer is: ${questionData[1]}`);
-            modal.style.display = "none";
-        };
+        Object.keys(questions[category]).forEach(points => {
+            const questionButton = document.createElement("button");
+            questionButton.classList.add("question");
+            questionButton.innerText = points;
+            questionButton.onclick = () => openQuestionModal(category, points);
+            boardContainer.appendChild(questionButton);
+        });
     });
-});
+}
 
-// Close modal when clicking outside
-window.onclick = (event) => {
-    if (event.target === modal) {
+// Open the question modal
+function openQuestionModal(category, points) {
+    const [question, correctAnswer] = questions[category][points];
+    const modal = document.getElementById("modal");
+    const questionText = document.getElementById("question-text");
+    questionText.innerText = question;
+
+    const correctBtn = document.getElementById("correct-btn");
+    const incorrectBtn = document.getElementById("incorrect-btn");
+
+    modal.style.display = "flex";
+
+    correctBtn.onclick = function() {
+        assignPoints(points);
         modal.style.display = "none";
+    };
+
+    incorrectBtn.onclick = function() {
+        assignPoints(0);  // No points for incorrect
+        modal.style.display = "none";
+    };
+}
+
+// Assign points to a team
+function assignPoints(points) {
+    const team = prompt("Enter the team that answered correctly:");
+    if (!teamScores[team]) {
+        teamScores[team] = 0;
     }
-};
+
+    teamScores[team] += points;
+    updateScoreboard();
+}
+
+// Update the scoreboard
+function updateScoreboard() {
+    const scoreList = document.getElementById("score-list");
+    scoreList.innerHTML = ""; // Clear current scoreboard
+
+    for (const team in teamScores) {
+        const scoreItem = document.createElement("li");
+        scoreItem.innerText = `${team}: ${teamScores[team]}`;
+        scoreList.appendChild(scoreItem);
+    }
+}
+
+// Initialize the game
+generateBoard();
