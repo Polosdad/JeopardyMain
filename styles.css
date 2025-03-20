@@ -1,69 +1,76 @@
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
 }
 
-#jeopardy-board {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+#game-container {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
 }
 
-.category {
-    text-align: center;
-    background-color: #333;
-    color: white;
-    padding: 10px;
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
 }
 
-.category-header {
-    font-size: 24px;
-    margin-bottom: 10px;
+#board-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    margin-bottom: 20px;
 }
 
-.question {
-    width: 100%;
-    padding: 10px;
-    margin: 5px;
-    background-color: #007bff;
+.category, .question {
+    padding: 20px;
+    background-color: #007BFF;
     color: white;
-    font-size: 18px;
-    border: none;
+    font-size: 1.5em;
     cursor: pointer;
+    border: none;
 }
 
-.question:hover {
+.category:hover, .question:hover {
     background-color: #0056b3;
 }
 
-.modal {
+#scoreboard {
+    margin-top: 20px;
+}
+
+#score-list {
+    list-style-type: none;
+}
+
+#modal {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
     align-items: center;
+    justify-content: center;
 }
 
-#question-content {
+#modal-content {
     background-color: white;
-    padding: 20px;
-    border-radius: 5px;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
     text-align: center;
 }
 
 button {
-    padding: 10px;
+    padding: 10px 20px;
+    font-size: 1.2em;
     margin: 10px;
-    font-size: 18px;
 }
