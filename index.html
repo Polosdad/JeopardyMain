@@ -3,85 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jeopardy Game">
-    <meta name="author" content="Your Name">
     <title>Jeopardy Game</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <!-- Header Section -->
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="assets/images/logo.png" alt="Jeopardy Logo">
-            </div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#howto">How to Play</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Welcome to Jeopardy!</h1>
-        <p>The ultimate trivia game.</p>
-    </section>
-
-    <!-- Jeopardy Board Section -->
-    <section id="board" class="board">
-        <h2>Jeopardy Game Board</h2>
-        <div class="game-board">
+    <div class="game-container">
+        <div class="header">
+            <h1>Jeopardy!</h1>
+        </div>
+        <div class="board">
             <div class="category" id="category1">
-                <h3>Science</h3>
-                <button>100</button>
-                <button>200</button>
-                <button>300</button>
-                <button>400</button>
-                <button>500</button>
+                <button class="category-btn">Category 1</button>
+                <div class="question-buttons">
+                    <button class="question-btn">100</button>
+                    <button class="question-btn">200</button>
+                    <button class="question-btn">300</button>
+                    <button class="question-btn">400</button>
+                    <button class="question-btn">500</button>
+                </div>
             </div>
             <div class="category" id="category2">
-                <h3>History</h3>
-                <button>100</button>
-                <button>200</button>
-                <button>300</button>
-                <button>400</button>
-                <button>500</button>
+                <button class="category-btn">Category 2</button>
+                <div class="question-buttons">
+                    <button class="question-btn">100</button>
+                    <button class="question-btn">200</button>
+                    <button class="question-btn">300</button>
+                    <button class="question-btn">400</button>
+                    <button class="question-btn">500</button>
+                </div>
             </div>
             <div class="category" id="category3">
-                <h3>Literature</h3>
-                <button>100</button>
-                <button>200</button>
-                <button>300</button>
-                <button>400</button>
-                <button>500</button>
+                <button class="category-btn">Category 3</button>
+                <div class="question-buttons">
+                    <button class="question-btn">100</button>
+                    <button class="question-btn">200</button>
+                    <button class="question-btn">300</button>
+                    <button class="question-btn">400</button>
+                    <button class="question-btn">500</button>
+                </div>
             </div>
             <div class="category" id="category4">
-                <h3>Movies</h3>
-                <button>100</button>
-                <button>200</button>
-                <button>300</button>
-                <button>400</button>
-                <button>500</button>
+                <button class="category-btn">Category 4</button>
+                <div class="question-buttons">
+                    <button class="question-btn">100</button>
+                    <button class="question-btn">200</button>
+                    <button class="question-btn">300</button>
+                    <button class="question-btn">400</button>
+                    <button class="question-btn">500</button>
+                </div>
             </div>
             <div class="category" id="category5">
-                <h3>Music</h3>
-                <button>100</button>
-                <button>200</button>
-                <button>300</button>
-                <button>400</button>
-                <button>500</button>
+                <button class="category-btn">Category 5</button>
+                <div class="question-buttons">
+                    <button class="question-btn">100</button>
+                    <button class="question-btn">200</button>
+                    <button class="question-btn">300</button>
+                    <button class="question-btn">400</button>
+                    <button class="question-btn">500</button>
+                </div>
             </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Jeopardy Game. All rights reserved.</p>
-    </footer>
-
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
