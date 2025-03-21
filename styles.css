@@ -3,21 +3,12 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-h1, h2 {
+    background-color: #f4f4f4;
     color: #333;
 }
 
-a {
-    text-decoration: none;
-    color: #008CBA;
-}
-
-ul {
-    list-style-type: none;
-    padding-left: 0;
+h1, h2, h3 {
+    color: #333;
 }
 
 /* Header Section */
@@ -25,6 +16,9 @@ header {
     background-color: #333;
     color: white;
     padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 header nav {
@@ -48,57 +42,63 @@ header nav .nav-links li {
 
 /* Hero Section */
 .hero {
-    background-color: #f4f4f4;
+    background-color: #0099cc;
     text-align: center;
     padding: 50px 20px;
+    color: white;
 }
 
 .hero h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 20px;
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+}
+
+/* Game Board Section */
+.board {
+    padding: 40px 20px;
+}
+
+.board h2 {
+    text-align: center;
     margin-bottom: 30px;
 }
 
-.cta-btn {
-    background-color: #008CBA;
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.category {
+    background-color: #333;
     color: white;
-    padding: 10px 20px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.category h3 {
+    font-size: 2rem;
+}
+
+.category button {
+    background-color: #0099cc;
+    color: white;
+    font-size: 1.5rem;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
     border-radius: 5px;
-    font-size: 1.2rem;
+    cursor: pointer;
 }
 
-.cta-btn:hover {
-    background-color: #005f73;
-}
-
-/* About, Features, and Installation Sections */
-section {
-    padding: 40px 20px;
-    margin: 20px 0;
-}
-
-section h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-section p, section ul {
-    text-align: center;
-    font-size: 1.1rem;
-}
-
-.features ul {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-}
-
-.features li {
-    font-size: 1.2rem;
+.category button:hover {
+    background-color: #007a99;
 }
 
 /* Footer */
@@ -107,6 +107,7 @@ footer {
     background-color: #333;
     color: white;
     padding: 10px;
+    margin-top: 50px;
 }
 
 footer p {
