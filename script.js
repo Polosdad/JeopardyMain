@@ -40,9 +40,8 @@ const questions = {
 // Function to show the question when a button is clicked
 function showQuestion(category, points) {
     const question = questions[category][points];
-    const answer = prompt(question);
+    const userAnswer = prompt(question);
     
-    // For simplicity, we assume the answer is correct if the user inputs anything
-    // This can be improved with proper answer validation
-    alert(`You answered: ${answer}. (This is a sample, the correct answer should be validated here.)`);
+    // Here you could add the logic to check the answer and validate it
+    alert(`You answered: ${userAnswer}`);
 }
