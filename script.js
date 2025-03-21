@@ -1,59 +1,54 @@
-// Questions and Answers
-const questions = {
-    "Science": {
-        100: { question: "What is the chemical symbol for water?", answer: "H2O" },
-        200: { question: "What is the atomic number of Carbon?", answer: "6" },
-        300: { question: "Who developed the theory of relativity?", answer: "Albert Einstein" },
-        400: { question: "What is the powerhouse of the cell?", answer: "Mitochondria" },
-        500: { question: "What is the most abundant gas in the Earth's atmosphere?", answer: "Nitrogen" }
-    },
-    "History": {
-        100: { question: "Who was the first President of the United States?", answer: "George Washington" },
-        200: { question: "In which year did World War II end?", answer: "1945" },
-        300: { question: "Who was the first woman to fly solo across the Atlantic?", answer: "Amelia Earhart" },
-        400: { question: "What year did the Titanic sink?", answer: "1912" },
-        500: { question: "Who was the famous civil rights leader in the 1960s?", answer: "Martin Luther King Jr." }
-    },
-    "Literature": {
-        100: { question: "Who wrote 'Romeo and Juliet'?", answer: "William Shakespeare" },
-        200: { question: "What is the title of the first Harry Potter book?", answer: "Harry Potter and the Sorcerer's Stone" },
-        300: { question: "Who wrote 'The Great Gatsby'?", answer: "F. Scott Fitzgerald" },
-        400: { question: "What is the title of the novel set in the dystopian future, '1984'?", answer: "George Orwell" },
-        500: { question: "Who wrote 'Pride and Prejudice'?", answer: "Jane Austen" }
-    },
-    "Movies": {
-        100: { question: "What movie features the character 'Darth Vader'?", answer: "Star Wars" },
-        200: { question: "Who starred as the 'Titanic' leading man?", answer: "Leonardo DiCaprio" },
-        300: { question: "Which movie won Best Picture at the 1994 Academy Awards?", answer: "Forrest Gump" },
-        400: { question: "In what movie would you find the phrase 'I see dead people'?", answer: "The Sixth Sense" },
-        500: { question: "Who directed 'Jaws'?", answer: "Steven Spielberg" }
-    },
-    "Music": {
-        100: { question: "Who is known as the King of Pop?", answer: "Michael Jackson" },
-        200: { question: "Which band was known for the song 'Hey Jude'?", answer: "The Beatles" },
-        300: { question: "Who sang 'Rolling in the Deep'?", answer: "Adele" },
-        400: { question: "What country is the band ABBA from?", answer: "Sweden" },
-        500: { question: "Who composed the Four Seasons?", answer: "Antonio Vivaldi" }
-    }
-};
+document.addEventListener("DOMContentLoaded", function () {
+    // Sample categories and questions
+    const questions = {
+        "Harry Potter": {
+            100: "What house at Hogwarts values bravery and courage?",
+            200: "What is the name of the three-headed dog guarding the Sorcerer’s Stone?",
+            300: "What is the spell used to summon objects?",
+            400: "Who was the Half-Blood Prince?",
+            500: "Who was Draco Malfoy's date at the Yule Ball?"
+        },
+        "Star Wars": {
+            100: "What is the name of Han Solo’s ship?",
+            200: "Who is Luke Skywalker’s twin sister?",
+            300: "What is the name of the Mandalorian’s small green companion?",
+            400: "Who was Darth Vader’s master before he turned to the dark side?",
+            500: "What species is Grand Admiral Thrawn?"
+        },
+        "Science": {
+            100: "What planet is known as the Red Planet?",
+            200: "What is the powerhouse of the cell?",
+            300: "What type of energy is produced by a moving object?",
+            400: "What is the chemical symbol for gold?",
+            500: "What is the name of the largest known volcano in our solar system?"
+        },
+        "Law": {
+            100: "What is the highest court in the United States?",
+            200: "What is the legal term for spoken defamation?",
+            300: "How many amendments are in the U.S. Constitution?",
+            400: "What is the term for a court order requiring someone to appear in court?",
+            500: "What landmark case established the principle of judicial review?"
+        },
+        "Weather": {
+            100: "What is the term for frozen raindrops that form in strong thunderstorms?",
+            200: "What scale is used to measure hurricane intensity?",
+            300: "What layer of the atmosphere contains the ozone layer?",
+            400: "What effect causes moving air and water to turn due to Earth’s rotation?",
+            500: "What is the rare weather phenomenon where rain evaporates before hitting the ground?"
+        }
+    };
 
-// Show Question when clicked
-document.querySelectorAll(".category button").forEach(button => {
-    button.addEventListener('click', function() {
-        const category = this.parentElement.id;
-        const points = this.textContent;
-        const question = questions[category][points].question;
-        const answer = questions[category][points].answer;
-        
-        // Show the question
-        alert(`Question: ${question}`);
-        const userAnswer = prompt(`Your Answer (Correct answer: ${answer}):`);
-        
-        // Check if the answer is correct
-        if (userAnswer.toLowerCase() === answer.toLowerCase()) {
-            alert("Correct!");
-        } else {
-            alert(`Incorrect! The correct answer was: ${answer}`);
+    const categories = document.querySelectorAll('.category');
+    categories.forEach((category, index) => {
+        const categoryButtons = category.querySelector('.question-buttons');
+        for (let points = 100; points <= 500; points += 100) {
+            const button = document.createElement('button');
+            button.className = 'question-btn';
+            button.innerText = points;
+            button.addEventListener('click', () => {
+                alert(`Question for ${questions[Object.keys(questions)[index]]} - ${points} points: ${questions[Object.keys(questions)[index]][points]}`);
+            });
+            categoryButtons.appendChild(button);
         }
     });
 });
