@@ -39,9 +39,47 @@ const questions = {
 
 // Function to show the question when a button is clicked
 function showQuestion(category, points) {
-    const question = questions[category][points];
-    const userAnswer = prompt(question);
-    
-    // Here you could add the logic to check the answer and validate it
-    alert(`You answered: ${userAnswer}`);
+    if (questions[category] && questions[category][points]) {
+        const question = questions[category][points];
+        const userAnswer = prompt(question);
+        alert(`You answered: ${userAnswer}`);
+    } else {
+        alert("This question is not available.");
+    }
 }
+
+// Function to create the board dynamically
+function createBoard() {
+    const board = document.querySelector('.board');
+    const categories = Object.keys(questions);
+    
+    categories.forEach(category => {
+        const categoryDiv = document.createElement('div');
+        categoryDiv.classList.add('category');
+
+        // Create category button
+        const categoryButton = document.createElement('button');
+        categoryButton.classList.add('category-btn');
+        categoryButton.innerText = category;
+        categoryButton.onclick = () => {
+            alert(`You clicked on ${category}`);
+        };
+
+        categoryDiv.appendChild(categoryButton);
+
+        // Create question buttons for each category
+        const points = [100, 200, 300, 400, 500];
+        points.forEach(point => {
+            const questionButton = document.createElement('button');
+            questionButton.classList.add('question-btn');
+            questionButton.innerText = point;
+            questionButton.onclick = () => showQuestion(category, point);
+            categoryDiv.appendChild(questionButton);
+        });
+
+        board.appendChild(categoryDiv);
+    });
+}
+
+// Call the function to create the board when the page loads
+window.onload = createBoard;
